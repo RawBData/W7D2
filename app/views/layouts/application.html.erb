@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MejorMusica</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  border: 2px solid #73AD21;
+  border-radius: 25px;
+  padding:10px;
+  ">
+  <header style=
+  "display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  font-family: consolas;
+  border: 2px solid #73AD21;
+  border-radius: 25px;
+  padding:10px;
+  ">
+  <img src="<%= asset_path( 'tenor.gif' ) %>" alt=<%= asset_path( 'dance.jpg' ) %>" >
+  <h1 style=
+  "font-size:400%;
+  color:#E42D65;
+  font-family:Impact,Charcoal,sans-serif;
+  ">Mejor Musica</h1>
+  <div style="
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  ">
+    <% if logged_in? %>
+        <h3 style="font-family:Impact,Charcoal,sans-serif;font-size:250%;background-color:#DAF7A6;border-radius:5px;color:#BE95BC;"> <%= current_user.email %> </h3>
+        <form action="/session" method="post">
+          <input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'/>
+          <input type="hidden" name="_method" value="DELETE">
+          <input style="font-family:Impact,Charcoal,sans-serif;font-size:100%;background-color:#DAF7A6;border-radius:5px;color:#ECD2EB;" type="submit" value="Log Out">
+        </form>
+    <% else %>
+        <a style="font-family:Impact,Charcoal,sans-serif;font-size:100%;background-color:#DAF7A6;border-radius:5px;color:#BE95BC;" href="<%= new_user_url%>">Sign Up</a>
+        <a style="font-family:Impact,Charcoal,sans-serif;font-size:400%;background-color:#DAF7A6;border-radius:5px;color:#BE95BC;" href="<%= new_session_url%>">  LOGIN  </a>
+        
+        
+    <% end %>
+  </div>
+
+
+    
+  </header>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<h1 style=
+  "display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  font-family: consolas;
+  border: 2px solid #73AD21;
+  border-radius: 25px;
+  padding:10px;
+  color:#BE99CC;
+  ">Sweet Bands To Jam To</h1>
+
+<ul>
+<% @albums.each do |album| %>
+<li><p><a  style="color:#5F4C66;" href="<%= album_url(album) %>"><%= album.title %></a></p></li>
+<% end %>
+
+</ul>

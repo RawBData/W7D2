@@ -1,0 +1,37 @@
+<h1>Create New Band Page</h1>
+
+<form action="<%= albums_url %>" method="post">
+<input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'/>
+    <label>Title
+    <br>
+     <input type="text" name="album[title]" value='<%= @band.name%>'>
+    </label>
+    <br>
+    <br>
+    
+    <label>Year the album was created
+    <br>
+     <input type="text" name="album[year]" value='<%= @band.yr_started %>'>
+    </label>
+    <br>
+    <br>
+    
+    <label>Band
+    <br>
+     <input type="text" name="album[band_id]" value='<%= @band.name%>'>
+    </label>
+    <br>
+    <br>
+    
+    <label>Kind of recording
+    <br>
+     <input type="text" name="album[kind_of_recording]" value='<%= @band.yr_started %>'>
+    </label>
+    <br>
+    <br>
+    
+    
+    
+    <input type="submit" value="Add Band!!!">
+
+</form>

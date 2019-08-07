@@ -1,0 +1,19 @@
+<h1>Create New Band Page</h1>
+
+<form action="<%= bands_url %>" method="post">
+<input type="hidden" name="authenticity_token" value='<%= form_authenticity_token %>'/>
+    <label>Name
+    <br>
+     <input type="text" name="band[name]" value='<%= @band.name%>'>
+    </label>
+    <br>
+    <br>
+    <label>Year the band was created
+    <br>
+     <input type="text" name="band[yr_started]" value='<%= @band.yr_started %>'>
+    </label>
+    <br>
+    <br>
+    <input type="submit" value="Add Band!!!">
+
+</form>
